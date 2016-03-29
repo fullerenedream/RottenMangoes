@@ -1,8 +1,13 @@
 RottenMangoes::Application.routes.draw do
   
+  get "users/new"
+  get "users/create"
   # config/routes.rb
     Rails.application.routes.draw do
+  get "users/new"
+  get "users/create"
       resources :movies
+      resources :users, only: [:new, :create]
     end
 
   # The priority is based upon order of creation: first created -> highest priority.
