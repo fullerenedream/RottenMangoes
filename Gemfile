@@ -35,6 +35,12 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Use carrierwave for image uploading
+gem 'carrierwave', '~> 0.10.0'
+
+# Use mini_magick for image resizing
+gem 'mini_magick', '~> 4.3'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
