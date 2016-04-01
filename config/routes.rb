@@ -7,7 +7,7 @@ RottenMangoes::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'movies#index'
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users, only: [:index, :show]
   end
 
 end

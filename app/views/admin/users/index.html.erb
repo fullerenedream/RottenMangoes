@@ -2,7 +2,7 @@
 
 <% @users.each do |user| %>
   <p>Name: <%= user.firstname %> <%= user.lastname %></p>
-  <p>Email: <%= user.email %></p>
+  <h2><%= link_to user.email, admin_user_path(user) %></h2>
   <br>
 <% end %>
 <%= paginate @users %>
