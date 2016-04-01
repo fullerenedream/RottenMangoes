@@ -41,6 +41,12 @@ gem 'carrierwave', '~> 0.10.0'
 # Use mini_magick for image resizing
 gem 'mini_magick', '~> 4.3'
 
+# Use kaminari for pagination
+gem 'kaminari'
+
+# Use pry for debugging
+gem 'pry'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

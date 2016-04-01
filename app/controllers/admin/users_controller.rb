@@ -1,7 +1,13 @@
 class Admin::UsersController < ApplicationController
 
+  before_filter :is_admin?
+
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10)
+  end
+
+  def show
+    @users = User.find(params[:id])
   end
 
 end
