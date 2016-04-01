@@ -1,0 +1,46 @@
+<h1>Admin: update user</h1>
+
+<%= form_for [:admin, @user], html: { multipart: true } do |f| %>
+  
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented this user from being submitted:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= check_box_tag(:admin) %>
+    <%= label_tag(:admin, "Make new user an Admin") %>
+  </div>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :firstname, "First Name" %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div>
+    <%= f.label :lastname, "Last Name" %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div><%= f.submit "Submit" %></div>
+
+<% end %>
+
+<br>
+<%= link_to "Cancel - Back to all users", admin_users_path %><br/>
+<br>

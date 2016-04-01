@@ -1,4 +1,6 @@
+<%= link_to "Edit user", edit_user_path(@user) %><br/>
 <%= link_to "Back to all users", admin_users_path %><br/>
+<p>Admin? <%= @user.admin %></p>
 <p>Name: <%= @user.firstname %> <%= @user.lastname %></p>
 <p>Email: <%= @user.email %></p>
 <p>Created: <%= @user.created_at %></p>

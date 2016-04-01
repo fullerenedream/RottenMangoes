@@ -15,10 +15,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if params[:admin] == "1"
+      @user.admin = true
+      @user.save!
+    end
+    if @user.update_attributes(user_params)
+      redirect_to admin_user_path, notice: "User #{@user.firstname} #{@user.lastname} successfully updated!"
+    else
+      render :edit
+    end
+  end
+
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+    params.require(:user).permit(:admin, :email, :firstname, :lastname, :password, :password_confirmation)
   end
 
 end
