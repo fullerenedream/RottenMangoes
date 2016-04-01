@@ -26,10 +26,16 @@ class UsersController < ApplicationController
       @user.save!
     end
     if @user.update_attributes(user_params)
-      redirect_to admin_user_path, notice: "User #{@user.firstname} #{@user.lastname} successfully updated!"
+      redirect_to admin_users_path, notice: "User #{@user.firstname} #{@user.lastname} successfully updated!"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path, notice: "User #{@user.firstname} #{@user.lastname} deleted!"
   end
 
   protected

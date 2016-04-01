@@ -1,7 +1,9 @@
-<%= link_to "Edit user", edit_user_path(@user) %><br/>
+<%= link_to "Edit user", edit_admin_user_path(@user) %><br/>
 <%= link_to "Back to all users", admin_users_path %><br/>
 <p>Admin? <%= @user.admin %></p>
 <p>Name: <%= @user.firstname %> <%= @user.lastname %></p>
 <p>Email: <%= @user.email %></p>
 <p>Created: <%= @user.created_at %></p>
 <p>Updated: <%= @user.updated_at %></p>
+<%= link_to "Delete user", user_path(@user), :method => :delete, :"data-confirm" => "You sure?" %></h2>
+<br><br>

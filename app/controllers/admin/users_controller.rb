@@ -24,7 +24,7 @@ class Admin::UsersController < ApplicationController
         @user.save!
       end
 
-      redirect_to admin_user_path, notice: "User #{@user.firstname} #{@user.lastname} successfully created!"
+      redirect_to admin_users_path, notice: "User #{@user.firstname} #{@user.lastname} successfully created!"
     else
       render :new
     end
@@ -37,10 +37,16 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to admin_user_path, notice: "User #{@user.firstname} #{@user.lastname} successfully updated!"
+      redirect_to admin_users_path, notice: "User #{@user.firstname} #{@user.lastname} successfully updated!"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path, notice: "User #{@user.firstname} #{@user.lastname} deleted!"
   end
 
   protected
