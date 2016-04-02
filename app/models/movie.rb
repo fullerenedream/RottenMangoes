@@ -32,6 +32,10 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def self.search_by_title(title)
+    self.where("title like ?", title)
+  end
+
   protected
 
   def release_date_is_in_the_past
