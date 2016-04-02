@@ -36,6 +36,21 @@ class Movie < ActiveRecord::Base
     self.where("title like ?", title)
   end
 
+  def self.search_by_director(director)
+    self.where("director like ?", director)
+  end
+
+  def self.search_by_duration(duration)
+    if duration == "Under 90 minutes"
+      result = self.where("runtime_in_minutes < '90'")
+    elsif duration == "Between 90 and 120 minutes"
+      result = self.where("runtime_in_minutes >= '90' AND runtime_in_minutes < '120'")
+    elsif duration == "Over 120 minutes"
+      result = self.where("runtime_in_minutes > '120'")
+    end
+    result
+  end
+
   protected
 
   def release_date_is_in_the_past

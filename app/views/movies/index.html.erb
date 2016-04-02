@@ -1,9 +1,14 @@
 <h1>Rotten Mangoes</h1>
 
+<h3>Search</h3>
 <%= form_tag("/movies", method: "get") do %>
-  <%= label_tag(:title, "Search for:") %>
-  <%= text_field_tag(:title) %>
-  <%= submit_tag("Search") %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag(:title) %><br>
+  <%= label_tag(:director, "Director:") %>
+  <%= text_field_tag(:director) %><br>
+  <%= label_tag(:duration, "Duration:") %>
+  <%= select_tag "duration", options_for_select([ "", "Under 90 minutes", "Between 90 and 120 minutes", "Over 120 minutes" ], params[:duration]) %><br>
+  <%= submit_tag("Search") %><br>
   <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset'%>
 <% end %>
 
