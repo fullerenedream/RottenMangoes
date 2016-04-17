@@ -47,6 +47,13 @@ gem 'kaminari'
 # Use pry for debugging
 gem 'pry'
 
+# Use bootstrap for CSS framework
+gem 'bootstrap-sass', '~> 3.2.0'
+
+# autoprefixer-rails automatically adds the proper vendor prefixes
+# to your CSS code when it is compiled (recommended with bootstrap)
+gem 'autoprefixer-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
