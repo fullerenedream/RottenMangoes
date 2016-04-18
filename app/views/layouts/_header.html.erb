@@ -1,5 +1,21 @@
 <header>
 
+<div class="container is-fluid">
+
+<% if false %>
+<h3>Search</h3>
+<%= form_tag("/movies", method: "get") do %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag(:title) %><br>
+  <%= label_tag(:director, "Director:") %>
+  <%= text_field_tag(:director) %><br>
+  <%= label_tag(:duration, "Duration:") %>
+  <%= select_tag "duration", options_for_select([ "", "Under 90 minutes", "Between 90 and 120 minutes", "Over 120 minutes" ], params[:duration]) %><br>
+  <%= submit_tag("Search") %><br>
+  <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset'%>
+<% end %>
+<% end %>
+
 <!-- Main container -->
 <nav class="navbar">
   <!-- Left side -->
@@ -42,12 +58,34 @@
   <!-- Right side -->
   <div class="navbar-right">
     <p class="navbar-item is-grouped">
-      <a class="button is-primary">Log In</a>
-      <a class="button is-primary">Sign Up</a>
+      <!-- <a class="button is-primary">Log In</a> -->
+      <% if current_user %>
+        <a class="button is-primary is-outlined"><%= current_user.full_name %></a>
+        <%= link_to "Log out", session_path("current"), class: 'button is-primary', method: :delete %>
+      <% else %>
+        <%= link_to "Log In", new_session_path,  class: 'button is-primary' %> <%= link_to "Sign Up", new_user_path, class: 'button is-primary' %>
+      <% end %>
+      <!-- <a class="button is-primary">Sign Up</a> -->
     </p>
   </div>
 </nav>
 
-<h1 class="title is-1">Rotten Mangoes</h1>
+<!-- Main container -->
+<nav class="navbar">
+  <!-- Left side -->
+  <div class="navbar-left is-grouped">
+    <div class="navbar-item">
+      <!-- <p class="title is-1">Rotten Mangoes</p> -->
+      <p class="title is-1"><%= link_to "Rotten Mangoes", movies_path %></p>
+    </div>
+  </div>
+
+  <!-- Right side -->
+  <div class="navbar-right">
+    <a class="button is-primary">Submit a movie!</a>
+  </div>
+</nav>
+
+</div>
 
 </header>
