@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bulma";
+
+.navbar {
+    margin-bottom: 23px;
+}
+
+.navbar:not(:last-child) {
+    margin-top: 10px;
+}
+

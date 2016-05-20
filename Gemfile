@@ -47,6 +47,9 @@ gem 'kaminari'
 # Use pry for debugging
 gem 'pry'
 
+# Use bulma for CSS framework
+gem 'bulma'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
